@@ -5,9 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Extract Code</title>
 </head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 2em;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+
+    code {
+        display: block;
+        background-color: #2d2d2d;
+        color: #f8f8f2;
+        padding: 1em;
+        border-radius: 5px;
+        font-family: Consolas, "Courier New", monospace;
+        overflow-x: auto;
+        line-height: 1.5;
+    }
+
+    h1 {
+        color: #444;
+        text-align: center;
+    }
+</style>
 <body>
     <h1>Callback Handler</h1>
-    <p id="output"></p>
+    <code id="output"></code>
     <script>
         // Get the query string from the current URL
         const urlParams = new URLSearchParams(window.location.search);
