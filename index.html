@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Code</title>
+</head>
+<body>
+    <h1>Callback Handler</h1>
+    <p id="output"></p>
+    <script>
+        // Get the query string from the current URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code'); // Extract the 'code' parameter
+
+        if (code) {
+            // Display the code
+            document.getElementById('output').textContent = `Code: ${code}`;
+            console.log('Code:', code);
+        } else {
+            document.getElementById('output').textContent = 'Code parameter not found.';
+        }
+    </script>
+</body>
+</html>
