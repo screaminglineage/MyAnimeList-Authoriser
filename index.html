@@ -6,28 +6,55 @@
     <title>Extract Code</title>
 </head>
 <style>
+<style>
     body {
         font-family: Arial, sans-serif;
         margin: 2em;
-        background-color: #f4f4f9;
-        color: #333;
+        background-color: #121212;
+        color: #e0e0e0; 
     }
 
     code {
         display: block;
-        background-color: #2d2d2d;
+        background-color: #2a2a2a;
         color: #f8f8f2;
         padding: 1em;
         border-radius: 5px;
         font-family: Consolas, "Courier New", monospace;
-        overflow-x: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
         line-height: 1.5;
+        cursor: pointer;
+        position: relative;
+    }
+
+    code:hover {
+        background-color: #3a3a3a;
+    }
+
+    .copied {
+        position: absolute;
+        top: -1.5em;
+        right: 0.5em;
+        background-color: #4caf50;
+        color: white;
+        padding: 0.2em 0.5em;
+        border-radius: 3px;
+        font-size: 0.8em;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .copied.show {
+        opacity: 1;
     }
 
     h1 {
-        color: #444;
+        color: #f0f0f0; /* Light color for the heading */
         text-align: center;
     }
+</style>
+
 </style>
 <body>
     <h1>Callback Handler</h1>
