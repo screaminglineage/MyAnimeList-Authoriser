@@ -3,73 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <title>Extract Code</title>
 </head>
-<style>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 2em;
-        background-color: #2a2a2a;
-        color: #f8f8f2; 
-    }
-
-    code {
-        display: block;
-        background-color: #121212;
-        color: #e0e0e0;
-        padding: 1em;
-        border-radius: 5px;
-        font-family: Consolas, "Courier New", monospace;
-        white-space: pre-wrap;
-        word-break: break-word;
-        line-height: 1.5;
-        cursor: pointer;
-        position: relative;
-    }
-
-    code:hover {
-        background-color: #3a3a3a;
-    }
-
-    .copied {
-        position: absolute;
-        top: -1.5em;
-        right: 0.5em;
-        background-color: #4caf50;
-        color: white;
-        padding: 0.2em 0.5em;
-        border-radius: 3px;
-        font-size: 0.8em;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    .copied.show {
-        opacity: 1;
-    }
-
-    h1 {
-        text-align: center;
-    }
-</style>
-
-</style>
 <body>
-    <h1>Callback Handler</h1>
+    <h1>Click the Code Below to Copy and Paste it into the Application</h1>
     <code id="output"></code>
     <script>
-        // Get the query string from the current URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const code = urlParams.get('code'); // Extract the 'code' parameter
+        // Extract 'code' parameter from window url and show it
+        const code = new URLSearchParams(window.location.search).get("code");
+        const outputBox = document.getElementById("output");
 
         if (code) {
-            // Display the code
-            document.getElementById('output').textContent = `Code: ${code}`;
-            console.log('Code:', code);
+            outputBox.textContent = code;
         } else {
-            document.getElementById('output').textContent = 'Code parameter not found.';
+            outputBox.textContent = "Code parameter not found.";
         }
+
+        outputBox.addEventListener("click", async () => {
+            await navigator.clipboard.writeText(outputBox.textContent);
+            const originalText = outputBox.textContent;
+            outputBox.textContent = 'Copied!';
+            setTimeout(() => {
+                outputBox.textContent = originalText;
+            }, 1000);
+        });
     </script>
 </body>
 </html>
